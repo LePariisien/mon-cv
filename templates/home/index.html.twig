@@ -1,7 +1,52 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Acceuil{% endblock %}
+{% block title %}Accueil{% endblock %}
 
 {% block body %}
-<h1>Mon CV</h1>
+<div class="container-fluid text-white mt-3">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h2 class="display-4 mt-3 text-center">Bienvenue sur mon site !</h2>
+        </div>
+        <div class="col-md-6" id="textPres" style="margin-top: 80px">
+            <h4>Je suis {{ user.prenom }} {{ user.nom }},</h4>
+            <p class="lead">Mon enthousiasme pour le développement web m'a guidé vers une aventure passionnante dans le monde numérique.</p>
+            <p class="lead">Ma soif de création et d'innovation m'a poussé à explorer en profondeur le domaine du développement web.</p>
+        </div>
+        <div class="col-md-6 text-center" style="margin-top: 80px">
+            <div class="image-contour mx-auto">
+                <img src="{{ asset('images/photo.jpg') }}" alt="Image de profil">
+            </div>
+        </div>
+        <div class="col-md-6 offset-md-3 text-center" style="margin-top: 80px">
+            <div class="d-flex justify-content-between">
+                <a href="javascript:void(0);" onclick="afficherParcours('parcoursPro');" class="btn btn-primary">Parcours Professionnel</a>
+                <a href="javascript:void(0);" onclick="afficherParcours('parcoursEtudiant');" class="btn btn-primary">Parcours Étudiant</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="parcoursPro" class="text-white text-center mt-5" style="display: none;">
+    <!-- Contenu du parcours professionnel -->
+    <h2>Parcours professionnel</h2>
+    <!-- Ajoutez ici les informations du parcours professionnel -->
+</div>
+
+<div id="parcoursEtudiant" class="text-white text-center mt-5" style="display: none;">
+    <!-- Contenu du parcours étudiant -->
+    <h2>Parcours étudiant</h2>
+    <!-- Ajoutez ici les informations du parcours étudiant -->
+</div>
+
+<script>
+function afficherParcours(parcours) {
+    // Masquez toutes les divs de parcours
+    document.getElementById('parcoursPro').style.display = 'none';
+    document.getElementById('parcoursEtudiant').style.display = 'none';
+
+    // Affichez la div du parcours sélectionné
+    document.getElementById(parcours).style.display = 'block';
+}
+</script>
 {% endblock %}

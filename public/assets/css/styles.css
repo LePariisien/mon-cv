@@ -1,0 +1,18 @@
+body {
+    background: linear-gradient(90deg, #536D7A 0%, #292E49 100%);
+}
+
+.image-contour {
+    width: 200px; /* Ajustez la largeur et la hauteur selon vos besoins */
+    height: 200px;
+    overflow: hidden;
+    border-radius: 50%; /* Crée un contour de forme circulaire */
+}
+
+.image-contour img {
+    width: 100%;
+    height: auto;
+    margin-top: -60px;
+}
+
+  
