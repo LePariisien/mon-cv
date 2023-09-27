@@ -3,10 +3,10 @@ body {
 }
 
 .image-contour {
-    width: 200px; /* Ajustez la largeur et la hauteur selon vos besoins */
+    width: 200px; 
     height: 200px;
     overflow: hidden;
-    border-radius: 50%; /* Crée un contour de forme circulaire */
+    border-radius: 50%;
 }
 
 .image-contour img {
@@ -15,4 +15,10 @@ body {
     margin-top: -60px;
 }
 
-  
+.pdf-icon {
+    width: 20px; 
+    height: auto;
+    margin-right: 8px;
+    margin-bottom: 3px;
+    vertical-align: middle;
+}
