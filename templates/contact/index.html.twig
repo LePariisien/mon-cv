@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block body %}
+{% for message in app.flashes('success') %}
+    <div style="color: green; border: 2px green solid; text-align: center; padding: 5px; margin-bottom: 10px;">
+    {{ message }}
+    </div>
+{% endfor %}
+<div class="container text-white mt-3">
+    <h1 class="text-center">Contactez-moi</h1>
+
+    {{ form_start(form) }}
+    {{ form_errors(form)}}
+    <fieldset class="mb-3">
+        <legend>Votre Identité</legend>
+            {{ form_row(form.nom, { 'attr': {'class': 'form-control'} }) }}
+            {{ form_row(form.prenom, { 'attr': {'class': 'form-control'} }) }}
+    </fieldset>
+    <fieldset class="mb-3">
+        <legend>Vos Coordonnées</legend>
+            {{ form_row(form.email, { 'attr': {'class': 'form-control'} }) }}
+    </fieldset>
+    <fieldset class="mb-3">
+        <legend>Votre Requête</legend>
+            {{ form_row(form.message, { 'attr': {'class': 'form-control'} }) }}
+    </fieldset>
+
+    <button type="submit" class="btn btn-primary mt-3">Envoyer</button>
+
+    {{ form_end(form) }}
+</div>
+{% endblock %}
+
