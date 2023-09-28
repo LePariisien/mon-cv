@@ -27,6 +27,8 @@ class ContactController extends AbstractController
 
             $entityManager->persist($contactMessage);
             $entityManager->flush();
+
+            $request->getSession()->set('recently_contacted_id', $contactMessage->getId());
             // Traitez ici l'envoi du formulaire par email
             $email = (new TemplatedEmail())
                 ->from($contactMessage->getEmail())
@@ -37,9 +39,13 @@ class ContactController extends AbstractController
                     'message' => $contactMessage,
                 ]);
 
-            $mailer->send($email);
-
-            $this->addFlash('success', 'Votre message a été envoyé avec succès.');
+                try {
+                    $mailer->send($email);
+                    $this->addFlash('success', 'Votre message a été envoyé avec succès.');
+                } catch (\Exception $e) {
+                    $this->addFlash('error', 'Une erreur s\'est produite lors de l\'envoi de l\'email : ' . $e->getMessage());
+                }
+                
 
             return $this->redirectToRoute('app_contact');
         }
