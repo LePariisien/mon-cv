@@ -41,6 +41,9 @@ class ExperiencePro
     #[ORM\Column]
     private ?int $cp = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $typecontrat = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -150,6 +153,18 @@ class ExperiencePro
     public function setCp(int $cp): static
     {
         $this->cp = $cp;
+
+        return $this;
+    }
+
+    public function getTypecontrat(): ?string
+    {
+        return $this->typecontrat;
+    }
+
+    public function setTypecontrat(string $typecontrat): static
+    {
+        $this->typecontrat = $typecontrat;
 
         return $this;
     }
