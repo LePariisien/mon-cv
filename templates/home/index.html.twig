@@ -33,9 +33,18 @@
 </div>
 
 <div id="parcoursPro" class="text-white text-center mt-5" style="display: none;">
-    <!-- Contenu du parcours professionnel -->
     <h2>Parcours professionnel</h2>
-    <!-- Ajoutez ici les informations du parcours professionnel -->
+            {% for experience in experiences %}
+        <li class="list-group-item text-white text-start ms-2">
+            <h4 class="text-center mt-2 mb-3">{{ experience.nomentreprise }}</h4>
+            <p><strong>Adresse :</strong> {{ experience.adresse }}, {{ experience.cp }}</p>
+            <p><strong>Période :</strong> {{ experience.datedebut|date('d/m/Y') }} -
+                {{ experience.datefin|date('d/m/Y') }}</p>
+            <p><strong>Poste :</strong> {{ experience.poste }}</p>
+            <p><strong>Type de contrat :</strong> {{ experience.typecontrat }}</p>
+            <hr>
+        </li>
+        {% endfor %}
 </div>
 
 <div id="parcoursEtudiant" class="text-white text-center mt-5" style="display: none;">
