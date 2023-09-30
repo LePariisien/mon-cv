@@ -1,20 +1,46 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ExperienceProController!{% endblock %}
+{% block title %}Expériences Professionnelles{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <style>
+        li.list-group-item {
+            background: none;
+            border: none;
+        }        
+        .competence-bulle {
+        display: inline-block;
+        background-color: #4CAF50; /* Couleur verte */
+        color: white;
+        padding: 4px 8px;
+        margin: 2px;
+        border-radius: 10px;
+        transition: transform 0.2s;
+        }
+        .competence-bulle:hover {
+        transform: scale(1.2); /* Grossissement de 10% au survol */
+        }
+    </style>
+<div class="container mt-3">
+    <h1 class="text-center text-white">Expériences Professionnelles</h1>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/AlexandreCANO/Documents/CODE/MonCV/mon-cv/src/Controller/ExperienceProController.php'|file_link(0) }}">src/Controller/ExperienceProController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/AlexandreCANO/Documents/CODE/MonCV/mon-cv/templates/experience_pro/index.html.twig'|file_link(0) }}">templates/experience_pro/index.html.twig</a></code></li>
+    <ul class="list-group">
+        {% for experience in experiences %}
+        <li class="list-group-item text-white">
+            <h4>{{ experience.nomentreprise }}</h4>
+            <p><strong>Poste :</strong> {{ experience.poste }}</p>
+            <p><strong>Période :</strong> {{ experience.datedebut|date('d/m/Y') }} -
+                {{ experience.datefin|date('d/m/Y') }}</p>
+            <p><strong>Compétences :</strong>
+                {% for competence in experience.competence %}
+                    <span class="competence-bulle">{{ competence }}</span>
+                {% endfor %}
+            </p>
+            <p><strong>Description :</strong> {{ experience.description|nl2br }}</p>
+            <p><strong>Adresse :</strong> {{ experience.adresse }}, {{ experience.cp }}</p>
+        </li>
+        {% endfor %}
     </ul>
 </div>
 {% endblock %}
+
