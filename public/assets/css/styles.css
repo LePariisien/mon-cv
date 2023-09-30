@@ -22,3 +22,88 @@ body {
     margin-bottom: 3px;
     vertical-align: middle;
 }
+
+.bubble {
+    background-color: rgba(255, 255, 255, 0.3); 
+    border: none; 
+    border-radius: 10px; 
+    padding: 10px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+    transition: background-color 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
+}
+
+.bubble:hover {
+    background-color: rgba(109, 184, 254, 0.8);
+    transform: rotate(10deg);
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(-250%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Appliquez l'animation au titre */
+#welcome-heading {
+    animation: slideIn 1s ease-in-out;
+}
+
+
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+#textPres {
+    animation: slideInFromLeft 3s ease-in-out;
+}
+
+
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-450%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+#animated-link {
+    animation: slideInFromLeft 4s ease-in-out;
+}
+
+
+@keyframes slideInFromRight {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+#animated-div {
+    animation: slideInFromRight 3s ease-in-out;
+}
+
+
+@keyframes slideInFromRight {
+    0% {
+        transform: translateX(550%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+#animated-link2 {
+    animation: slideInFromRight 4s ease-in-out;
+}
