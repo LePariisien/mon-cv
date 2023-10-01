@@ -109,6 +109,55 @@ body {
     animation: slideInFromRight 4s ease-in-out;
 }
 
+.timeline {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 0px; /* Centrer la ligne horizontalement */
+    top: 700px; /* Ajustez cette valeur pour la position verticale de la ligne temporelle */
+    width: 2px; /* Largeur de la ligne temporelle verticale */
+    height: 1045px; /* Hauteur de la ligne temporelle verticale */
+    background-color: #fff; /* Couleur de la ligne temporelle verticale */
+    margin-left: 1000px; /* Centrer la ligne verticalement */
+}
+
+.timeline-item {
+    width: 20px; /* Largeur du point */
+    height: 20px; /* Hauteur du point */
+    background-color: #4CAF50; /* Couleur du point */
+    border-radius: 50%; /* Pour obtenir une forme de cercle */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 50%; /* Ajustez cette valeur pour le placement horizontal du point */
+    transform: translateX(-50%);
+}
+
+.year {
+    position: absolute;
+    left: 35px;
+    text-align: center;
+    width: 100%;
+}
+
+
+.timeline-item:nth-child(1) {
+    top: 0%; 
+}
+
+.timeline-item:nth-child(2) {
+    top: 27%; 
+}
+
+.timeline-item:nth-child(3) {
+    top: 53%; 
+}
+
+.timeline-item:nth-child(4) {
+    top: 81.7%;
+}
+
 /*index.html.twig experience_pro*/
 
 li.list-group-item {
