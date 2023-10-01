@@ -23,6 +23,8 @@ body {
     vertical-align: middle;
 }
 
+/*index.html.twig home*/
+
 .bubble {
     background-color: rgba(255, 255, 255, 0.3); 
     border: none; 
@@ -47,7 +49,6 @@ body {
     }
 }
 
-/* Appliquez l'animation au titre */
 #welcome-heading {
     animation: slideIn 1s ease-in-out;
 }
@@ -106,4 +107,72 @@ body {
 
 #animated-link2 {
     animation: slideInFromRight 4s ease-in-out;
+}
+
+/*index.html.twig experience_pro*/
+
+li.list-group-item {
+    background: none;
+    border: none;
+}
+
+.competence-bulle {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: white;
+    padding: 4px 8px;
+    margin: 2px;
+    border-radius: 10px;
+    transition: transform 0.2s;
+}
+
+.competence-bulle:hover {
+    transform: scale(1.2);
+}
+
+.company-image {
+    max-width: 150px;
+    margin-left: 1000px;
+    margin-top: -100px;
+    vertical-align: middle;
+}
+
+.company-logo {
+    max-width: 150px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.small-icon {
+width: 16px; 
+height: 16px;
+margin-bottom: 5px;
+margin-right: 5px;
+}
+
+/*Light animation*/
+
+.animated-text {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+}
+
+.animated-text::after {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    animation: moveAround 5s linear infinite;
+}
+
+@keyframes moveAround {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
 }
