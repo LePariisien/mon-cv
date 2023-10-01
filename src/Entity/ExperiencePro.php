@@ -44,6 +44,12 @@ class ExperiencePro
     #[ORM\Column(length: 255)]
     private ?string $typecontrat = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $photo = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $logo = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -165,6 +171,30 @@ class ExperiencePro
     public function setTypecontrat(string $typecontrat): static
     {
         $this->typecontrat = $typecontrat;
+
+        return $this;
+    }
+
+    public function getPhoto(): ?string
+    {
+        return $this->photo;
+    }
+
+    public function setPhoto(string $photo): static
+    {
+        $this->photo = $photo;
+
+        return $this;
+    }
+
+    public function getLogo(): ?string
+    {
+        return $this->logo;
+    }
+
+    public function setLogo(string $logo): static
+    {
+        $this->logo = $logo;
 
         return $this;
     }
