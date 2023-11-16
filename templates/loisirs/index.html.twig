@@ -1,20 +1,41 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello LoisirsController!{% endblock %}
+{% block title %}Mes Loisirs{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <style>
+    </style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <div class="container">
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/AlexandreCANO/Documents/CODE/MonCV/mon-cv/src/Controller/LoisirsController.php'|file_link(0) }}">src/Controller/LoisirsController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/AlexandreCANO/Documents/CODE/MonCV/mon-cv/templates/loisirs/index.html.twig'|file_link(0) }}">templates/loisirs/index.html.twig</a></code></li>
-    </ul>
-</div>
+        <div class="language-rating">
+            <h2>Langues</h2>
+            <ul>
+                {% for language, rating in languages %}
+                    <li>{{ language }}: {{ rating }}/5 (système d'étoile)</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="interests">
+        <h1>Mes Centres D'intérets</h1>
+            <div>
+                <h2>Voyages</h2>
+                <ul>
+                    {% for destination in travelDestinations %}
+                        <li>{{ destination }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div>
+                <h2>Sport</h2>
+                <ul>
+                    {% for sport in sports %}
+                        <li>{{ sport }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
 {% endblock %}
