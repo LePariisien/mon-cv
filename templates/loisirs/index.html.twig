@@ -4,38 +4,100 @@
 
 {% block body %}
     <style>
+        .language-rating, .interests {
+            display: flex;
+            text-align: center;
+            margin-left: 400px;
+            padding-bottom: 130px;
+        }
+
+        .language-rating p, .interests p {
+            margin-right: 150px;
+            list-style-type: none; /* Pour enlever les puces des listes */
+            padding: 0;
+        }
+
+        .language-rating img {
+        width: 100px;
+        margin-right: 150px;
+        }
+
+    .rating-circles {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .rating-circle {
+        width: 20px;
+        height: 20px;
+        background-color: #EF6A6A;
+        border-radius: 50%;
+        margin: 0 5px;
+    }
+
+        .rating-circle2 {
+        width: 20px;
+        height: 20px;
+        background-color: #FFFFFF;
+        border-radius: 50%;
+        margin: 0 5px;
+    }
+
     </style>
 
-    <div class="container">
+    <div class="text-white container mt-5">
 
-        <div class="language-rating">
-            <h2>Langues</h2>
-            <ul>
-                {% for language, rating in languages %}
-                    <li>{{ language }}: {{ rating }}/5 (système d'étoile)</li>
-                {% endfor %}
-            </ul>
+        <!-- Partie "Niveau de langue" -->
+            <h2>Niveau de langue :</h2>        
+            <div class="language-rating">
+                <div>
+                    <img src="{{ asset('images/flag-english.gif') }}" alt="Anglais">
+                    <p>Anglais: <span class="rating-circles">
+                        <span class="rating-circle"></span>
+                        <span class="rating-circle"></span>
+                        <span class="rating-circle"></span>
+                        <span class="rating-circle"></span>
+                        <span class="rating-circle2"></span>
+                    </span> (3.5/5)</p>
+                </div>
+                <div>
+                    <img src="{{ asset('images/flag-spanish.gif') }}" alt="Espagnol">
+                    <p>Espagnol: <span class="rating-circles">
+                        <span class="rating-circle"></span>
+                        <span class="rating-circle"></span>
+                        <span class="rating-circle"></span>
+                        <span class="rating-circle"></span>
+                        <span class="rating-circle2"></span>
+                    </span> (3.5/5)</p>
+                </div>
+                <div>
+                    <img src="{{ asset('images/flag-portugese.gif') }}" alt="Portugais">
+                    <p>Portugais: <span class="rating-circles">
+                        <span class="rating-circle"></span>
+                        <span class="rating-circle"></span>
+                        <span class="rating-circle2"></span>
+                        <span class="rating-circle2"></span>
+                        <span class="rating-circle2"></span>
+                    </span> (3.5/5)</p>
+                </div>
+            </div>
+
+        <!-- Partie "Sport" -->
+        <h2>Sport :</h2>
+        <div class="interests">
+            <p>Football</p>
+            <p>Musculation</p>
+            <p>Tennis</p>
         </div>
 
+        <!-- Partie "Voyage" -->
+        <h2>Voyage :</h2>
         <div class="interests">
-        <h1>Mes Centres D'intérets</h1>
-            <div>
-                <h2>Voyages</h2>
-                <ul>
-                    {% for destination in travelDestinations %}
-                        <li>{{ destination }}</li>
-                    {% endfor %}
-                </ul>
-            </div>
-
-            <div>
-                <h2>Sport</h2>
-                <ul>
-                    {% for sport in sports %}
-                        <li>{{ sport }}</li>
-                    {% endfor %}
-                </ul>
-            </div>
+            <p>États-Unis</p>
+            <p>Thaïlande</p>
+            <p>Canada</p>
+            <p>Europe</p>
         </div>
     </div>
 {% endblock %}
